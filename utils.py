@@ -17,6 +17,6 @@ Function for validating that a value is a positive number.
 def validate_positive_number(value, name):
     if not isinstance(value, (int, float)):
         raise TypeError(f"{name} must be anumber, not {type(value)}")
-    if value <= 0 =:
+    if value <= 0:
         raise ValueError(f"{name} must be positive")
     return float(value)
