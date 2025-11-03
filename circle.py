@@ -32,7 +32,7 @@ class Circle(Shape):
         return math.pi * self.radius ** 2
     
     @property
-    def perimiter(self):
+    def perimeter(self):
         # Calculate the perimiter (2 * pi * r)
         return 2 * math.pi * self.radius
     
