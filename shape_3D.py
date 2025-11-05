@@ -61,7 +61,7 @@ class Shape3D(AllShape):
         return self._z 
     
     @z.setter 
-    def y(self, value):
+    def z(self, value):
         """Validate before setting z-coordinate"""
         self._z = validate_number(value, "z")
     
