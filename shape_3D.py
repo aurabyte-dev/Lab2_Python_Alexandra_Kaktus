@@ -1,17 +1,18 @@
 from all_shape import AllShape 
 from utils import validate_number
 
-class Shape(AllShape):
+class Shape3D(AllShape):
 
     """
     A class for geometric shapes.
-    Provides common functionality for 2D shapes. 
+    Provides common functionality for 3D shapes. 
 
     Attributes:
     - x (float): x-coordinates of the shapes center
     - y (float): y-coordinates of the shapes center
-    - area (float): Area of the shape (read-only)
-    - perimeter (float): Perimeter of the shape (read-only)
+    - z (float): z-coordinate of the shape's center
+    - surface_area (float): Surface area of the shape (read-only)
+    - volume (float): Volume of the shape (read-only)
 
     Methods:
     - translate(dx, dy): Move the shape by dx and dy
@@ -19,17 +20,19 @@ class Shape(AllShape):
     
     """
 
-    def __init__(self, x: float = 0, y: float = 0) -> None:
+    def __init__(self, x: float = 0, y: float = 0, z: float = 0) -> None:
         """
-        Initialize a Shape with x and y center coordinates.
+        Initialize a 3D Shape with x, y and z center coordinates.
 
         Parameters:
         - x (float): x-coordinate of the center (default:0)
         - y (float): y-coordinate of the center (default:0)
+        - z (float): z-coordinate of the center (default:0)
         
         """
         self.x = x
         self.y = y
+        self.z = z
 
     @property
     def x(self): 
@@ -51,24 +54,37 @@ class Shape(AllShape):
     def y(self, value):
         """Validate before setting y-coordinate"""
         self._y = validate_number(value, "y")
+
+    @property
+    def z(self):
+        """Get the z-coordinate"""
+        return self._z 
     
-    def translate(self, dx: float, dy: float) -> None:
+    @z.setter 
+    def y(self, value):
+        """Validate before setting z-coordinate"""
+        self._z = validate_number(value, "z")
+    
+    def translate(self, dx: float, dy: float, dz: float) -> None:
         """
         Move the shape by dx and dy
 
         Parameters:
         - dx (float): Distance to move in x-direction
         - dy (float): Distance to move in y-direction
+        - dz (float): Distance to move in z-direction
 
         """
         dx = validate_number(dx, "dx")
         dy = validate_number(dy, "dy")
+        dz = validate_number(dz, "dz")
 
         self._x += dx
         self._y += dy
+        self._z += dz
 
     def comparison_metric(self):
-        """Returns the area of the 2D shape comparison"""
-        return self.area
+        """Returns the volume of the 3D shape comparison"""
+        return self.volume
     
     
